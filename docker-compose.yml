@@ -2,9 +2,11 @@ version: '3.3'
 services:
   snake:
     image: 'dchirwa/snakegame-website:latest'
+    container_name: snake_app2
     environment:
       - "PORT:3000"
     ports:
       - "8080:3000"
     volumes:
       - ./:/app
+    restart: always
