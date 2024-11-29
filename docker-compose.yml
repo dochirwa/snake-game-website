@@ -2,7 +2,7 @@ version: '3.3'
 services:
   snake:
     image: 'dchirwa/snakegame-website:latest'
-    container_name: snake_app2
+    container_name: snake_app
     environment:
       - "PORT:3000"
     ports:
