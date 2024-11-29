@@ -8,7 +8,7 @@ node('appserver')
   }        
   stage ('Build-and-Tag')
   {
-    app = docker.build("dchirwa/snake-game:latest")
+    app = docker.build("dchirwa/snakegame-website:latest")
   }        
   stage ('Post-to-DockerHub')
   {
