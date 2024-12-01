@@ -10,10 +10,15 @@ node('appserver')
   {
     app = docker.build("dchirwa/snakegame-website:latest")
   }  
-  stage('SAST-SNYK')
+  stage('SCA-SAST-SNYK-TEST')
   {
-    echo "test"
-  }      
+    snykSecurity
+    (
+        snykInstallation: 'Snyk',
+        snykTokenId: 'Snykid',
+        severity: 'critical'
+    )    
+  }
   stage('Post-to-DockerHub')
   {
     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_credentials')
