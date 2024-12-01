@@ -9,7 +9,11 @@ node('appserver')
   stage ('Build-and-Tag')
   {
     app = docker.build("dchirwa/snakegame-website:latest")
-  }        
+  }  
+  stage (SAST-SNYK)
+  {
+    echo "test"
+  }      
   stage ('Post-to-DockerHub')
   {
     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_credentials')
